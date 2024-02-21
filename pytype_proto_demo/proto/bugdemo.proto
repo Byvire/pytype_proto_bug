@@ -1,0 +1,10 @@
+
+syntax = "proto3";
+
+package pytype_proto_demo.bugdemo;
+
+enum Dessert {
+  DESSERT_UNKNOWN = 0;
+  DESSERT_SUNDAE = 2;
+  DESSERT_SHRIMP_SMOOTHIE = 3;
+}

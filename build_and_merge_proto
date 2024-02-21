@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# This script builds the proto _pb2.py and _pb2.pyi files and then merges them.
+# After you run this, you'll find that ./run_unit_tests fails but ./run_pytype
+# succeeds.
+
+protoc -I=. --python_out=. --pyi_out=. pytype_proto_demo/proto/*.proto
+
+for pb2_file in $(ls pytype_proto_demo/proto/*_pb2.py) ; do
+    if [[ -f "${pb2_file}"i ]] ; then
+        merge-pyi -i "${pb2_file}" "${pb2_file}"i
+        rm "${pb2_file}"i
+    fi
+done

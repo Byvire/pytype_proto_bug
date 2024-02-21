@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This version just builds the _pb2.py and _pb2.pyi files and writes them to the
+# pytype_proto_demo/proto directory without merging them. After you run this,
+# ./run_pytype will fail with errors but ./run_unit_tests will succeed.
+
+protoc -I=. --python_out=. --pyi_out=. pytype_proto_demo/proto/*.proto

@@ -1,0 +1,2 @@
+#!/bin/sh
+pytype pytype_proto_demo/example.py
